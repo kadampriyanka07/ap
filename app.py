@@ -56,12 +56,12 @@ else:
 
     # Update layout
     fig3.update_layout(title_text="Population and Life Expectancy by Continent",
-                       showlegend=False)
+                   showlegend=True)  # Set showlegend to True to display legends
     fig3.update_xaxes(title_text="Year", row=1, col=2)
     fig3.update_yaxes(title_text="Life Expectancy", row=1, col=2)
 
-    # Show the plot
-    st.plotly_chart(fig3)
+# Show the plot
+st.plotly_chart(fig3)
 
     fig4 = px.scatter(data.query("year == @selected_year"), x="gdpPercap", y="lifeExp", color="continent", log_x=True)
     fig4.update_layout(xaxis_title="GDP per Capita", yaxis_title="Life Expectancy", title=f"Life Expectancy vs GDP per Capita for {selected_year}")
